@@ -89,7 +89,7 @@ namespace Fuse.Reactive
 			var o = obj as Scripting.Object;
 			if (o != null)
 			{
-				if (o.InstanceOf(Context.Observable)) 
+				if (o.InstanceOf(FuseJS.Observable)) 
 				{
 					return new Observable(this, o, false);
 				}
