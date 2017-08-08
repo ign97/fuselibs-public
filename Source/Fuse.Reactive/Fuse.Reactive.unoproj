@@ -26,6 +26,7 @@
     "Fuse.Scripting.Test",
     "Fuse.Selection",
     "Fuse.Common.Test.Helpers",
+    "Fuse.Controls.Navigation",
     "Fuse.Charting",
     "FuseTest",
     "Fabric"

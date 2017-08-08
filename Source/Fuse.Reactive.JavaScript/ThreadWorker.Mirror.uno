@@ -1,3 +1,4 @@
+using Fuse.Scripting;
 using Uno;
 using Uno.Collections;
 using Uno.Threading;
@@ -63,6 +64,9 @@ namespace Fuse.Reactive
 				else if (o.InstanceOf(FuseJS.TreeObservable))
 				{
 					return new TreeObservable(o);
+				else if (o.InstanceOf(FuseJS.Date))
+				{
+					return DateTimeConverterHelpers.ConvertDateToDateTime(o);
 				}
 				else
 				{
