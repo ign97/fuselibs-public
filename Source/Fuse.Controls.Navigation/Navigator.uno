@@ -14,7 +14,7 @@ namespace Fuse.Controls
 		
 		@include Docs/Navigator.md
 	*/
-	public partial class Navigator: NavigationControl, IRouterOutlet
+	public partial class Navigator: NavigationControl, IRouterOutlet, Fuse.Reactive.IObserver
 	{
 		/**
 			@deprecated Use `DefaultPath` instead
