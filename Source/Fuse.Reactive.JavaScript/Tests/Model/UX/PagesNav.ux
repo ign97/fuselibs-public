@@ -1,0 +1,19 @@
+<Panel ux:Class="UX.Model.PagesNav" Model="UX/PagesNav">
+    <WhileTrue ux:Name="flag" />
+    <Navigator Pages="{pages}">
+        <Page ux:Template="Page1">
+            <Activated When="Immediate">
+                <Set flag.Value="false" />
+            </Activated>
+        </Page>
+        <Page ux:Template="Page2">
+            <Activated When="Immediate">
+                <Set flag.Value="true" />
+            </Activated>
+        </Page>
+    </Navigator>
+    <FuseTest.Invoke Handler="{gotoPage2}" ux:Name="gotoPage2"/>
+    <FuseTest.Invoke Handler="{goBack}" ux:Name="goBack"/>
+    <FuseTest.Invoke Handler="{gotoPage2Rewrite}" ux:Name="gotoPage2Rewrite"/>
+    <FuseTest.Invoke Handler="{goBackRewrite}" ux:Name="goBackRewrite"/>
+</Panel>

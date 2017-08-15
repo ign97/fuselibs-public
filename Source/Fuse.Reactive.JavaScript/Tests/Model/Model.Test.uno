@@ -479,5 +479,31 @@ namespace Fuse.Reactive.Test
 				root.StepFrameJS();
 			}
 		}
+
+		[Test]
+		public void PagesNav() {
+			var e = new UX.Model.PagesNav();
+			using (var root = TestRootPanel.CreateWithChild(e))
+			{
+				root.StepFrameJS();
+				Assert.AreEqual(false, e.flag.Value);
+
+				// Navigate rewriting the property for the list
+				e.gotoPage2Rewrite.Perform();
+				root.StepFrameJS();
+				Assert.AreEqual(true, e.flag.Value);
+				e.goBackRewrite.Perform();
+				root.StepFrameJS();
+				Assert.AreEqual(false, e.flag.Value);
+
+				// Navigate manipulating the list in place using push/pop
+				e.gotoPage2.Perform();
+				root.StepFrameJS();
+				Assert.AreEqual(true, e.flag.Value);
+				e.goBack.Perform();
+				root.StepFrameJS();
+				Assert.AreEqual(false, e.flag.Value);
+			}
+		}
 	}
 }
