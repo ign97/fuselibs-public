@@ -1,0 +1,22 @@
+<Panel ux:Class="UX.Model.RecycleViewModel" Model="UX/RecycleViewModel">
+
+    <Navigator Pages="{pages}">
+        <Page ux:Template="WelcomePage" />
+        <Page ux:Template="FirstPage">
+            <PageControl Active="first">
+                <Page ux:Name="first">
+                    <Navigator Active="{innerPage}">
+                        <Page ux:Template="UnusedPage" Transition="None" />
+                        <Page ux:Template="DummyPage" Transition="None" />
+                    </Navigator>
+                </Page>
+                <Page ux:Name="second" />
+            </PageControl>
+        </Page>
+        <Page ux:Template="SecondPage" />
+    </Navigator>
+
+    <FuseTest.Invoke Handler="{gotoFirstPage}" ux:Name="gotoFirst"/>
+    <FuseTest.Invoke Handler="{gotoSecondPage}" ux:Name="gotoSecond"/>
+    <FuseTest.Invoke Handler="{goBack}" ux:Name="goBack" />
+</Panel>

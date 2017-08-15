@@ -461,5 +461,23 @@ namespace Fuse.Reactive.Test
 
 			}
 		}
+
+		[Test]
+		public void RecycleViewModel() {
+			var e = new UX.Model.RecycleViewModel();
+			using (var root = TestRootPanel.CreateWithChild(e)) {
+				root.StepFrameJS();
+				e.gotoFirst.Perform();
+				root.StepFrameJS();
+				e.gotoSecond.Perform();
+				root.StepFrameJS();
+				e.goBack.Perform();
+				root.StepFrameJS();
+				e.gotoSecond.Perform();
+				root.StepFrameJS();
+				e.goBack.Perform();
+				root.StepFrameJS();
+			}
+		}
 	}
 }
